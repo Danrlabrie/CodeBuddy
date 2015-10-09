@@ -1,0 +1,97 @@
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html ng-app="sliderCodyApp">
+  <head>
+    <link href='https://fonts.googleapis.com/css?family=Play:700' rel='stylesheet' type='text/css'>  
+    <link rel="stylesheet" href="jquery-ui.min.css"> 
+      <style>
+    body {
+      padding: 2em;
+    }
+    pre {
+      border: 1px solid #999;
+      padding: 1em;
+      background-color: #FFE;
+    }
+    li {
+      list-style-position: inside;
+    }
+    .sliderExample {
+      width: 640px;
+      padding: 2em;
+      background-color: #f5f5f5;
+      border: 1px solid #f0f0f0;
+      margin: 2em;
+    }
+    .sliderExample > div {
+      margin: 1em 0;
+    }
+    .vertical-container {
+      width: 15%;
+      display: inline-block;
+    }
+    #swatch {
+      width: 100px;
+      height: 100px;
+      border: 1px solid black;
+    }
+    #red .ui-slider-range { background: #ef2929; }
+    #red .ui-slider-handle { border-color: #ef2929; }
+    #green .ui-slider-range { background: #8ae234; }
+    #green .ui-slider-handle { border-color: #8ae234; }
+    #blue .ui-slider-range { background: #729fcf; }
+    #blue .ui-slider-handle { border-color: #729fcf; }
+  </style>
+    <script type="text/javascript" src="jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="jquery-ui.min.js"></script>
+    <script type="text/javascript" src="angular.min.js"> </script>
+    <script type="text/javascript" src="slider.js"></script>
+    <script type="text/javascript" src="popup.js"></script>
+ <title>CodeBuddy</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+        background-color: gray;
+        color: black
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 500px;
+      }
+    </style>
+
+   <div>
+   <img style="width: 500px; height 500px; display: block; margin: auto;" src='robit.png'/>
+   </div>
+
+  </head>
+  <body ng-controller="sliderCodyCtrl">
+    <h2 style="font-family: 'Play', sans-serif; margin: auto; width: 14%">Hi there! I'm CODE-E.</h2>
+    <div></div>
+    <div style="padding-bottom: 10px">
+    <strong>Adjust the speed of my voice!</strong>
+    </div>
+    <div></div>
+    <div style="width: 25%; background-color: gray; border-color: black" ui-slider min="0.00" max="2.00" step="0.01" use-decimals ng-model="thespeed"></div>
+    <input style="background-color: gray; border: none" type="text" ng-model="thespeed" />
+    <div></div>
+
+    <div style="margin-top: 30px">
+    <div style="padding-bottom: 10px">
+    <strong style="padding-top: 20px">Adjust the pitch of my voice!</strong>
+    </div>
+    <div style="width: 25%; background-color: gray; border-color: black" ui-slider min="0.00" max="2.00" step="0.01" use-decimals ng-model="thepitch"></div>
+    <input style="background-color: gray; border: none" type="text" ng-model="thepitch" />
+    <button style="display:block; margin: 10px; background-color: black; color: white; border: 5px solid black; border-radius: 2px"ng-click='update()'> update </button>
+    </div>
+  </body>
+</html>
+
